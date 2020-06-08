@@ -1,4 +1,4 @@
-package egovframework.buserservation.utils;
+package egovframework.busreservation.utils;
 
 import java.io.File;
 import java.util.List;

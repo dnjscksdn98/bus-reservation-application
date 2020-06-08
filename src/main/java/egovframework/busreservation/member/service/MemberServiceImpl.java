@@ -12,14 +12,13 @@ import javax.annotation.Resource;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
-
-import egovframework.buserservation.utils.FileUtils;
 import egovframework.busreservation.member.dto.MemberSignupDto;
 import egovframework.busreservation.member.dto.MemberLoginDto;
 
 import egovframework.busreservation.member.exception.IdExistsException;
 import egovframework.busreservation.member.exception.InvalidPasswordException;
 import egovframework.busreservation.member.exception.MemberNotFoundException;
+import egovframework.busreservation.utils.FileUtils;
 
 
 @Service("memberService")
