@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 
 import egovframework.busreservation.section.dto.SectionRequestDto;
 import egovframework.busreservation.section.dto.SectionResponseDto;
+import egovframework.busreservation.section.exception.InvalidSectionException;
 
 
 @Service("sectionService")
@@ -15,8 +16,11 @@ public class SectionServiceImpl implements SectionService {
 	
 	@Override
 	public SectionResponseDto findSectionByCd(SectionRequestDto resource) {
-		// TODO: 없는 섹션일 때의 예외처리
-		return sectionMapper.findSectionByCd(resource);
+		SectionResponseDto section = sectionMapper.findSectionByCd(resource);
+		if(section == null) {
+			throw new InvalidSectionException("존재하지 않는 섹션입니다");
+		}
+		return section;
 	}
 	
 	@Override

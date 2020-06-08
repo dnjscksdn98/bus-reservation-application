@@ -14,6 +14,7 @@ import egovframework.busreservation.section.dto.SectionRequestDto;
 import egovframework.busreservation.section.dto.SectionResponseDto;
 import egovframework.busreservation.section.service.SectionService;
 
+
 @Controller
 public class SectionController {
 
@@ -22,6 +23,7 @@ public class SectionController {
 	
 	@RequestMapping(value="section.do", method=RequestMethod.POST)
 	public ModelAndView section(@ModelAttribute SectionRequestDto resource) {
+		
 		SectionResponseDto section = sectionService.findSectionByCd(resource);
 		String startName = sectionService.findSectionNameByCd(resource.getStartCd());
 		String endName = sectionService.findSectionNameByCd(resource.getEndCd());
