@@ -3,6 +3,8 @@ package egovframework.busreservation.section.controller;
 import java.util.Map;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,9 +24,9 @@ public class SectionController {
 	private SectionService sectionService;
 	
 	@RequestMapping(value="section.do", method=RequestMethod.POST)
-	public ModelAndView section(@ModelAttribute SectionRequestDto resource) {
+	public ModelAndView section(@ModelAttribute SectionRequestDto resource, HttpSession session) {
 		
-		SectionResponseDto section = sectionService.findSectionByCd(resource);
+		SectionResponseDto section = sectionService.findSectionByCd(resource, session);
 		String startName = sectionService.findSectionNameByCd(resource.getStartCd());
 		String endName = sectionService.findSectionNameByCd(resource.getEndCd());
 		int seqNo = resource.getSeqNo();
