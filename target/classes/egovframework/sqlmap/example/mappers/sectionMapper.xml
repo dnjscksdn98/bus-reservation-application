@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SectionMapper">
+	
+	<select id="findSectionByCd" parameterType="SectionRequestDto" resultType="SectionResponseDto">
+	    
+	    SELECT 
+	    	section_no AS sectionNo, 
+	    	start_cd AS startCd, 
+	    	end_cd AS endCd, 
+	    	time
+	    FROM section
+	    WHERE start_cd = #{startCd} AND end_cd = #{endCd}
+	    
+	</select>
+	
+	<select id="findSectionNameByCd" resultType="String">
+	    
+	    SELECT so_name
+	    FROM so_cd
+	    WHERE so_cd = #{cd}
+	    
+	</select>
+	
+</mapper>

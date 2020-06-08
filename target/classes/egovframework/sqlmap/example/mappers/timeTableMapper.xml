@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TimeTableMapper">
+	
+	<select id="getTimeTable" resultType="TimeTableDto">
+	    
+	    SELECT * FROM (	
+			SELECT ROWNUM AS rn, A.* FROM (
+				SELECT
+					seq_no AS seqNo,
+					start_time AS startTime,
+					end_time AS endTime,
+					bus_no AS busNo
+				FROM
+					time_table
+				ORDER BY
+					seq_no
+			) A
+		) WHERE rn BETWEEN #{start} AND #{end}
+	    
+	</select>
+	
+	<select id="getTimeTableById" resultType="TimeTableDto">
+	    
+	    SELECT 
+	    	seq_no AS seqNo,
+			start_time AS startTime,
+			end_time AS endTime,
+			bus_no AS busNo
+	    FROM time_table
+	    WHERE seq_no = #{id}
+	    
+	</select>
+	
+</mapper>

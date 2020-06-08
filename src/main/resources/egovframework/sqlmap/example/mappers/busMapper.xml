@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BusMapper">
+	
+	<select id="getBusById" resultType="BusDto">
+	    
+	    SELECT 
+	    	bus_no AS busNo,
+	    	bus_name AS busName,
+	    	seat_cnt AS seatCnt,
+	    	mileage
+	    FROM bus
+	    WHERE bus_no = #{id}
+	    
+	</select>
+	
+</mapper>
