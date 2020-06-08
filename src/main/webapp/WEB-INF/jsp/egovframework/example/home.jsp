@@ -37,6 +37,16 @@
 					</c:if>
 				</c:forEach>
 			</select>
+			<select name="time">
+				<c:forEach var="time" items="${map.times}">
+					<c:if test="${Integer.toString(time).length() lt 2}">
+						<option value="0${time}">${time}시</option>
+					</c:if>
+					<c:if test="${Integer.toString(time).length() gt 1}">
+						<option value="${time}">${time}시</option>
+					</c:if>
+				</c:forEach>
+			</select>
 			<button type="submit">검색</button>
 		</form>
 		

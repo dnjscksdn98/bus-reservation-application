@@ -17,4 +17,12 @@ public class DateUtils {
 		}
 		return days;
 	}
+	
+	public int[] getTimes() {
+		int[] times = new int[10];
+		for(int i = 0; i < 10; i++) {
+			times[i] = 9 + i;
+		}
+		return times;
+	}
 }

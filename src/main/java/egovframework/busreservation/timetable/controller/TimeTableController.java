@@ -32,16 +32,17 @@ public class TimeTableController {
 	public ModelAndView timeTableView(
 			@RequestParam(defaultValue="1") int curPage,
 			@RequestParam(defaultValue="") String month,
-			@RequestParam(defaultValue="") String day) {
+			@RequestParam(defaultValue="") String day,
+			@RequestParam(defaultValue="") String time) {
 
-		String time = "2020" + month + day;
-		int count = timeTableService.getCountByTime(time);
+		String date = "2020" + month + day + time;
+		int count = timeTableService.getCountByTime(date);
 		
 		TimeTablePagination pagination = new TimeTablePagination(count, curPage);
 		int start = pagination.getPageBegin();
 		int end = pagination.getPageEnd();
 		
-		List<TimeTableDto> timetable = timeTableService.getTimeTable(time, start, end);
+		List<TimeTableDto> timetable = timeTableService.getTimeTable(date, start, end);
 		
 		DateUtils dateUtils = new DateUtils();
 		Map<String, Object> map = new HashMap<>();
@@ -49,6 +50,7 @@ public class TimeTableController {
 		map.put("pagination", pagination);
 		map.put("months", dateUtils.getMonths());
 		map.put("days", dateUtils.getDays());
+		map.put("times", dateUtils.getTimes());
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("map", map);
