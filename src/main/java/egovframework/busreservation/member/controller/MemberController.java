@@ -1,4 +1,4 @@
-package egovframework.busreserveration.member.controller;
+package egovframework.busreservation.member.controller;
 
 import javax.servlet.http.HttpSession;
 
