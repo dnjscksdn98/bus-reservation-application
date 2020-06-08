@@ -13,6 +13,7 @@
 					bus_no AS busNo
 				FROM
 					time_table
+				WHERE start_time like '%'||#{time}||'%'
 				ORDER BY
 					seq_no
 			) A
@@ -29,6 +30,14 @@
 			bus_no AS busNo
 	    FROM time_table
 	    WHERE seq_no = #{id}
+	    
+	</select>
+	
+	<select id="getCountByTime" resultType="int">
+	    
+	    SELECT COUNT(*)
+	    FROM time_table
+	    WHERE start_time like '%'||#{time}||'%'
 	    
 	</select>
 	

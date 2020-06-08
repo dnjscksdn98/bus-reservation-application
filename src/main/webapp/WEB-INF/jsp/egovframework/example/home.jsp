@@ -16,6 +16,30 @@
 		<%@ include file="./include/nav.jsp" %>
 		<h2>버스 시간표</h2>
 		
+		<form name="search_form" method="post" action="${path}/timetable/list.do">
+			<select name="month">
+				<c:forEach var="month" items="${map.months}">
+					<c:if test="${Integer.toString(month).length() lt 2}">
+						<option value="0${month}">${month}월</option>
+					</c:if>
+					<c:if test="${Integer.toString(month).length() gt 1}">
+						<option value="${month}">${month}월</option>
+					</c:if>
+				</c:forEach>
+			</select>
+			<select name="day">
+				<c:forEach var="day" items="${map.days}">
+					<c:if test="${Integer.toString(day).length() lt 2}">
+						<option value="0${day}">${day}일</option>
+					</c:if>
+					<c:if test="${Integer.toString(day).length() gt 1}">
+						<option value="${day}">${day}일</option>
+					</c:if>
+				</c:forEach>
+			</select>
+			<button type="submit">검색</button>
+		</form>
+		
 		<table border="1" style="width: 600px">
 			<tr>
 				<th>#</th>

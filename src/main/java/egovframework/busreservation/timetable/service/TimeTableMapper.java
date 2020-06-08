@@ -13,8 +13,9 @@ import egovframework.busreservation.timetable.dto.TimeTableDto;
 @Repository("timeTableMapper")
 public class TimeTableMapper extends EgovAbstractMapper {
 
-	public List<TimeTableDto> getTimeTable(int start, int end) {
+	public List<TimeTableDto> getTimeTable(String time, int start, int end) {
 		Map<String, Object> map = new HashMap<>();
+		map.put("time", time);
 		map.put("start", start);
 		map.put("end", end);
 		
@@ -23,5 +24,9 @@ public class TimeTableMapper extends EgovAbstractMapper {
 	
 	public TimeTableDto getTimeTableById(int id) {
 		return selectOne("TimeTableMapper.getTimeTableById", id);
+	}
+	
+	public int getCountByTime(String time) {
+		return selectOne("TimeTableMapper.getCountByTime", time);
 	}
 }

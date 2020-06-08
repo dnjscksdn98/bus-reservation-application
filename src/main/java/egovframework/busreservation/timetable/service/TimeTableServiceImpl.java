@@ -15,12 +15,17 @@ public class TimeTableServiceImpl implements TimeTableService {
 	private TimeTableMapper timeTableMapper;
 	
 	@Override
-	public List<TimeTableDto> getTimeTable(int start, int end) {
-		return timeTableMapper.getTimeTable(start, end);
+	public List<TimeTableDto> getTimeTable(String time, int start, int end) {
+		return timeTableMapper.getTimeTable(time, start, end);
 	}
 	
 	@Override
 	public TimeTableDto getTimeTableById(int id) {
 		return timeTableMapper.getTimeTableById(id);
+	}
+	
+	@Override
+	public int getCountByTime(String time) {
+		return timeTableMapper.getCountByTime(time);
 	}
 }
