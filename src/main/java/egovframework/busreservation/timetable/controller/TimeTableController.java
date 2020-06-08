@@ -75,4 +75,9 @@ public class TimeTableController {
 	}
 	
 	// TODO: 관리자 전용 타임 테이블 생성 함수 추가하기
+	// TODO: 각 컨트롤러단의 ERD, UCD 생성
+	@RequestMapping(value="create.do", method=RequestMethod.POST)
+	public void create() {
+		
+	}
 }

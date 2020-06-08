@@ -47,7 +47,7 @@
 					</c:if>
 				</c:forEach>
 			</select>
-			<button type="submit">검색</button>
+			<button type="submit" class="btn btn-default">검색</button>
 		</form>
 		
 		<c:if test="${map.count eq 0}">
