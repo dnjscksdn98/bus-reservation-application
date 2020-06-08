@@ -54,7 +54,7 @@
 			<span style="color: blue;">이 시간대의 버스는 없습니다</span>
 		</c:if>
 		
-		<table border="1" style="width: 600px">
+		<table class="table table-hover" border="1" style="width: 600px">
 			<tr>
 				<th>#</th>
 				<th>출발 시간</th>
@@ -65,8 +65,24 @@
 			
 				<tr>
 					<td>${row.getSeqNo()}</td>
-					<td><a href="${path}/timetable/detail.do?id=${row.getSeqNo()}">${row.getStartTime()}</a></td>
-					<td><a href="${path}/timetable/detail.do?id=${row.getSeqNo()}">${row.getEndTime()}</a></td>
+					<td>
+						<a href="${path}/timetable/detail.do?id=${row.getSeqNo()}">
+							${row.getStartTime().substring(0, 4)}년
+							${row.getStartTime().substring(4, 6)}월
+							${row.getStartTime().substring(6, 8)}일
+							${row.getStartTime().substring(8, 10)}시
+							${row.getStartTime().substring(10, 12)}분
+						</a>
+					</td>
+					<td>
+						<a href="${path}/timetable/detail.do?id=${row.getSeqNo()}">
+							${row.getEndTime().substring(0, 4)}년
+							${row.getEndTime().substring(4, 6)}월
+							${row.getEndTime().substring(6, 8)}일
+							${row.getEndTime().substring(8, 10)}시
+							${row.getEndTime().substring(10, 12)}분
+						</a>
+					</td>
 					<td>${row.getBusNo()}</td>
 				</tr>
 			

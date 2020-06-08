@@ -6,7 +6,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>버스 예약</title>
 		<%@ include file="../include/header.jsp" %>
-		<%@ include file="../include/session_check.jsp" %>
 	</head>
 	<body>
 		<%@ include file="../include/nav.jsp" %>
