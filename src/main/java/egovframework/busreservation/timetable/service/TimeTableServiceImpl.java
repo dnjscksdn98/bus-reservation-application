@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 import egovframework.busreservation.timetable.dto.TimeTableDto;
+import egovframework.busreservation.timetable.exception.InvalidTimeTableException;
 
 
 @Service("timeTableService")
@@ -21,7 +22,12 @@ public class TimeTableServiceImpl implements TimeTableService {
 	
 	@Override
 	public TimeTableDto getTimeTableById(int id) {
-		return timeTableMapper.getTimeTableById(id);
+		TimeTableDto timetable = timeTableMapper.getTimeTableById(id);
+		if(timetable == null) {
+			// TODO: 에러 페이지 꾸미기
+			throw new InvalidTimeTableException("존재하지 않는 타임 테이블입니다");
+		}
+		return timetable;
 	}
 	
 	@Override

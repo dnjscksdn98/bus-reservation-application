@@ -50,6 +50,10 @@
 			<button type="submit">검색</button>
 		</form>
 		
+		<c:if test="${map.count eq 0}">
+			<span style="color: blue;">이 시간대의 버스는 없습니다</span>
+		</c:if>
+		
 		<table border="1" style="width: 600px">
 			<tr>
 				<th>#</th>
@@ -61,8 +65,8 @@
 			
 				<tr>
 					<td>${row.getSeqNo()}</td>
-					<td>${row.getStartTime()}</td>
-					<td>${row.getEndTime()}</td>
+					<td><a href="${path}/timetable/detail.do?id=${row.getSeqNo()}">${row.getStartTime()}</a></td>
+					<td><a href="${path}/timetable/detail.do?id=${row.getSeqNo()}">${row.getEndTime()}</a></td>
 					<td>${row.getBusNo()}</td>
 				</tr>
 			

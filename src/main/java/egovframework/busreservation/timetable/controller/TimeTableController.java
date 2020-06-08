@@ -48,6 +48,7 @@ public class TimeTableController {
 		Map<String, Object> map = new HashMap<>();
 		map.put("timetable", timetable);
 		map.put("pagination", pagination);
+		map.put("count", count);
 		map.put("months", dateUtils.getMonths());
 		map.put("days", dateUtils.getDays());
 		map.put("times", dateUtils.getTimes());
