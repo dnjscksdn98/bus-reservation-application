@@ -9,4 +9,20 @@
 	    
 	</insert>
 	
+	<select id="getBusBySeq" resultType="int">
+	    
+	    SELECT bus_no AS busNo
+	    FROM time_table
+	    WHERE seq_no = #{seqNo}
+	    
+	</select>
+	
+	<update id="reduceSeat">
+	    
+	    UPDATE bus
+	    SET seat_cnt = seat_cnt - 1
+	    WHERE bus_no = #{busNo}
+	    
+	</update>
+	
 </mapper>

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 import egovframework.busreservation.appointment.dto.AppointmentDto;
+import egovframework.busreservation.auth.InvalidAuthenticationException;
 
 
 @Service("appointmentService")
@@ -15,11 +16,12 @@ public class AppointmentServiceImpl implements AppointmentService {
 	private AppointmentMapper appointmentMapper;
 	
 	@Override
-	public int reserve(AppointmentDto resource, HttpSession session) {
+	public void reserve(AppointmentDto resource, HttpSession session) {
 		if(session.getAttribute("userId") == null) {
-			return -1;
+			throw new InvalidAuthenticationException("인증되지 않은 사용자입니다");
 		}
 		appointmentMapper.reserve(resource);
-		return 1;
+		int busNo = appointmentMapper.getBusBySeq(resource.getSeqNo());
+		appointmentMapper.reduceSeat(busNo);
 	}
 }

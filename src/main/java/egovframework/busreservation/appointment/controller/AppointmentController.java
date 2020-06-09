@@ -22,16 +22,11 @@ public class AppointmentController {
 	
 	@RequestMapping(value="/reserve.do", method=RequestMethod.POST)
 	public ModelAndView reserve(@ModelAttribute AppointmentDto resource, HttpSession session) {
-		int result = appointmentService.reserve(resource, session);
+		appointmentService.reserve(resource, session);
 		
 		ModelAndView mav = new ModelAndView();
-		if(result == -1) {
-			mav.setViewName("member/login");
-		}
-		else {
-			// TODO: 예약 성공 페이지 꾸미기
-			mav.setViewName("appointment/reserve_success");
-		}
+		// TODO: 예약 성공 페이지 꾸미기
+		mav.setViewName("appointment/reserve_success");
 		return mav;
 	}
 }

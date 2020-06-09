@@ -7,5 +7,5 @@ import egovframework.busreservation.appointment.dto.AppointmentDto;
 
 public interface AppointmentService {
 
-	public int reserve(AppointmentDto resource, HttpSession session);
+	public void reserve(AppointmentDto resource, HttpSession session);
 }

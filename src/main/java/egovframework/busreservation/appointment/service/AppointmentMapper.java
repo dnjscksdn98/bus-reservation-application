@@ -13,4 +13,12 @@ public class AppointmentMapper extends EgovAbstractMapper {
 	public void reserve(AppointmentDto resource) {
 		insert("AppointmentMapper.reserve", resource);
 	}
+	
+	public int getBusBySeq(int seqNo) {
+		return selectOne("AppointmentMapper.getBusBySeq", seqNo);
+	}
+	
+	public void reduceSeat(int busNo) {
+		update("AppointmentMapper.reduceSeat", busNo);
+	}
 }
