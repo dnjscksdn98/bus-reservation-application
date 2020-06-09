@@ -9,6 +9,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -31,6 +32,7 @@ public class MemberServiceImpl extends EgovAbstractServiceImpl implements Member
 	private FileUtils fileUtils;
 	
 	@Override
+	@Transactional
 	public void signup(MemberSignupDto resource, MultipartHttpServletRequest mpRequest) {
 		if(findMemberById(resource.getId()) == -1) {
 			throw new IdExistsException("아이디가 이미 존재합니다");
@@ -50,7 +52,7 @@ public class MemberServiceImpl extends EgovAbstractServiceImpl implements Member
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 	}
 	
 	@Override

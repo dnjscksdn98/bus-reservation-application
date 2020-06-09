@@ -3,6 +3,8 @@ package egovframework.busreservation.appointment.service;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.annotation.Resource;
 
 import egovframework.busreservation.appointment.dto.AppointmentDto;
@@ -16,6 +18,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 	private AppointmentMapper appointmentMapper;
 	
 	@Override
+	@Transactional
 	public void reserve(AppointmentDto resource, HttpSession session) {
 		if(session.getAttribute("userId") == null) {
 			throw new InvalidAuthenticationException("인증되지 않은 사용자입니다");
