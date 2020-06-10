@@ -41,4 +41,20 @@
 	    
 	</select>
 	
+	<select id="findTimeTableByTime" resultType="int">
+	    
+	    SELECT seq_no AS seqNo
+	    FROM time_table
+	    WHERE start_time like '%'||#{time}||'%'
+	    
+	</select>
+	
+	<select id="findTimeTableBySeqNo" resultType="String">
+	    
+	    SELECT start_time AS startTime
+	    FROM time_table
+	    WHERE seq_no = #{seqNo}
+	    
+	</select>
+	
 </mapper>

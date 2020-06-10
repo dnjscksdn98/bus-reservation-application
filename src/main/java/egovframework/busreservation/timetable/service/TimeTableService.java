@@ -11,4 +11,8 @@ public interface TimeTableService {
 	public TimeTableDto getTimeTableById(int id);
 	
 	public int getCountByTime(String time);
+	
+	public int findTimeTableByTime(String time);
+	
+	public String findTimeTableBySeqNo(int seqNo);
 }

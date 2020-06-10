@@ -29,4 +29,12 @@ public class TimeTableMapper extends EgovAbstractMapper {
 	public int getCountByTime(String time) {
 		return selectOne("TimeTableMapper.getCountByTime", time);
 	}
+	
+	public int findTimeTableByTime(String time) {
+		return selectOne("TimeTableMapper.findTimeTableByTime", time);
+	}
+	
+	public String findTimeTableBySeqNo(int seqNo) {
+		return selectOne("TimeTableMapper.findTimeTableBySeqNo", seqNo);
+	}
 }

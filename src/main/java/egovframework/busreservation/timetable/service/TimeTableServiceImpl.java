@@ -34,4 +34,14 @@ public class TimeTableServiceImpl implements TimeTableService {
 	public int getCountByTime(String time) {
 		return timeTableMapper.getCountByTime(time);
 	}
+	
+	@Override
+	public int findTimeTableByTime(String time) {
+		return timeTableMapper.findTimeTableByTime(time);
+	}
+	
+	@Override
+	public String findTimeTableBySeqNo(int seqNo) {
+		return timeTableMapper.findTimeTableBySeqNo(seqNo);
+	}
 }
