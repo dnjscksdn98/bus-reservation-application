@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -41,7 +41,7 @@
 			<div>버스 이름: ${map.bus.getBusName()}</div>
 			<div>남은 좌석: ${map.bus.getSeatCnt()} 개</div>
 			
-			<button id="showReserveBtn" class="btn btn-default">구간 선택하기</button>
+			<button id="showReserveBtn" class="btn btn-outline-secondary">구간 선택하기</button>
 			
 			<div id="reserve" style="display: none">
 				<form name="reserve_form" method="post" action="${path}/section.do">
@@ -66,7 +66,7 @@
 						<option value="002004">남춘천역</option>
 					</select>
 					
-					<button type="submit" class="btn btn-primary btn-sm">예약하기</button>
+					<button type="submit" class="btn btn-outline-secondary btn-sm">예약하기</button>
 				</form>
 			</div>
 		</div>

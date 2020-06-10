@@ -7,22 +7,18 @@
 <!-- context path -->
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
-<nav class="navbar navbar-default">
- 	<div class="container-fluid">
-		<div class="navbar-header">
-			<a href="${path}/timetable/list.do" class="navbar-brand">Home</a>
-      		<c:choose>
-				<c:when test="${sessionScope.userId == null}">
-					<p class="navbar-text navbar-right">
-						<a href="${path}/member/login_view.do" class="navbar-link">Login</a>
-						<a href="${path}/member/signup_view.do" class="navbar-link">Signup</a>
-					</p>
-				</c:when>
-				<c:otherwise>
-					${sessionScope.userId}님이 로그인중입니다
-					<a href="${path}/member/logout.do" class="navbar-brand">Logout</a>
-				</c:otherwise>
-			</c:choose>
-		</div>
-	</div>
-</nav>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+	<h5 class="my-0 mr-md-auto font-weight-normal"><a class="p-2 text-dark" href="${path}/timetable/list.do">춘천 고속 버스</a></h5>
+	<nav class="my-2 my-md-0 mr-md-3">
+		<c:choose>
+			<c:when test="${sessionScope.userId == null}">
+   				<a class="p-2 text-dark" href="${path}/member/signup_view.do">회원가입</a>
+   				<a class="p-2 btn btn-outline-primary" href="${path}/member/login_view.do">로그인</a>
+   			</c:when>
+   			<c:otherwise>
+   				<a class="p-2 text-dark" href="#">${sessionScope.userId}</a>
+   				<a class="p-2 btn btn-outline-primary" href="${path}/member/logout.do">로그아웃</a>
+   			</c:otherwise>
+  		</c:choose>
+	</nav>
+</div>
