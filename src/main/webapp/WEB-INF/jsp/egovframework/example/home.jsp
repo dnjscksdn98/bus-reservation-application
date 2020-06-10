@@ -142,10 +142,11 @@
 				</form>
 				
 
-  				<footer class="pt-4 my-md-5 pt-md-5 border-top">
-    				<div class="row">
-      					<form name="search_form" method="post" action="${path}/timetable/list.do">
-							<select name="month">
+  				<footer class="pt-4 border-top">
+    				<div class="row text-center d-flex justify-content-center">
+      					<form class="form-inline" name="search_form" method="post" action="${path}/timetable/list.do">
+							<select name="month" class="form-control mr-2 mb-2" style="text-align-last: center;">
+								<option value="">-- 월 --</option>
 								<c:forEach var="month" items="${map.months}">
 									<c:if test="${Integer.toString(month).length() lt 2}">
 										<option value="0${month}">${month}월</option>
@@ -155,7 +156,8 @@
 									</c:if>
 								</c:forEach>
 							</select>
-							<select name="day">
+							<select name="day" class="form-control mr-2 mb-2" style="text-align-last: center;">
+								<option value="">-- 일 --</option>
 								<c:forEach var="day" items="${map.days}">
 									<c:if test="${Integer.toString(day).length() lt 2}">
 										<option value="0${day}">${day}일</option>
@@ -165,7 +167,8 @@
 									</c:if>
 								</c:forEach>
 							</select>
-							<select name="time">
+							<select name="time" class="form-control mr-2 mb-2" style="text-align-last: center;">
+								<option value="">-- 출발 시간 --</option>
 								<c:forEach var="time" items="${map.times}">
 									<c:if test="${Integer.toString(time).length() lt 2}">
 										<option value="0${time}">${time}시</option>
@@ -175,13 +178,15 @@
 									</c:if>
 								</c:forEach>
 							</select>
-							<button type="submit" class="btn btn-outline-secondary">검색</button>
+							<button type="submit" class="btn btn-outline-secondary mb-2">검색</button>
 						</form>
 						
 						<c:if test="${map.count eq 0}">
 							<span style="color: blue;">이 시간대의 버스는 없습니다</span>
 						</c:if>
+					</div>
 						
+					<div class="row text-center d-flex justify-content-center">
 						<table class="table table-hover" border="1" style="width: 600px">
 							<tr>
 								<th>#</th>
@@ -216,35 +221,56 @@
 							
 							</c:forEach>
 							
-							<tr>
-								<td colspan="5">
-									<c:if test="${map.pagination.getCurPage() > 1}">
-										<a href="javascript:list('1')">[처음]</a>
-									</c:if>
-									<c:if test="${map.pagination.getCurBlock() > 1}">
-										<a href="javascript:list('${map.pagination.getPrevPage()}')">[이전]</a>
-									</c:if>
-									
-									<c:forEach var="num" begin="${map.pagination.getBlockBegin()}" end="${map.pagination.getBlockEnd()}">						
-										<c:choose>
-											<c:when test="${num == map.pagination.getCurPage()}">
-												<span style="color: red;">${num}</span>&nbsp;
-											</c:when>
-											<c:otherwise>
-												<a href="javascript:list('${num}')">${num}</a>&nbsp;
-											</c:otherwise>
-										</c:choose>
-									</c:forEach>
-									
-									<c:if test="${map.pagination.getCurBlock() <= map.pagination.getTotBlock()}">
-										<a href="javascript:list('${map.pagination.getNextPage()}')">[다음]</a>
-									</c:if>
-									<c:if test="${map.pagination.getCurPage() < map.pagination.getTotPage()}">
-										<a href="javascript:list('${map.pagination.getTotPage()}')">[끝]</a>
-									</c:if>
-								</td>
-							</tr>
 						</table>
+					</div>
+						
+					<div class="row d-flex justify-content-center">
+						<nav aria-label="Page navigation example">
+						  <ul class="pagination">
+						  	<c:if test="${map.pagination.getCurPage() > 1}">
+						  		<li class="page-item">
+						  			<a class="page-link" href="javascript:list('1')">[처음]</a>
+						  		</li>
+							</c:if>
+							
+							<c:if test="${map.pagination.getCurBlock() > 1}">
+								<li class="page-item">
+									<a class="page-link" aria-label="Previous" href="javascript:list('${map.pagination.getPrevPage()}')">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+							</c:if>
+							
+							<c:forEach var="num" begin="${map.pagination.getBlockBegin()}" end="${map.pagination.getBlockEnd()}">						
+								<c:choose>
+									<c:when test="${num == map.pagination.getCurPage()}">
+										<li class="page-item disabled">
+									    	<span class="page-link">${num}</span>
+									    </li>
+									</c:when>
+									<c:otherwise>
+										<li class="page-item">
+											<a class="page-link" href="javascript:list('${num}')">${num}</a>
+										</li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						    
+						    <c:if test="${map.pagination.getCurBlock() <= map.pagination.getTotBlock()}">
+						    	<li class="page-item">
+									<a class="page-link" href="javascript:list('${map.pagination.getNextPage()}')">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</c:if>
+							<c:if test="${map.pagination.getCurPage() < map.pagination.getTotPage()}">
+								<li class="page-item">
+									<a class="page-link" href="javascript:list('${map.pagination.getTotPage()}')">[끝]</a>
+								</li>
+							</c:if>
+						    
+						  </ul>
+						</nav>
 					</div>
   				</footer>
 			</div>
