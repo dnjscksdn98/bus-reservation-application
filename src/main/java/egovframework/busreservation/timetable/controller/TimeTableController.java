@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import egovframework.busreservation.utils.DateUtils;
 import egovframework.busreservation.bus.dto.BusDto;
 import egovframework.busreservation.bus.service.BusService;
+import egovframework.busreservation.member.service.MemberService;
 import egovframework.busreservation.timetable.dto.TimeTableDto;
 import egovframework.busreservation.timetable.service.TimeTableService;
 import egovframework.busreservation.timetable.pagination.TimeTablePagination;
@@ -24,6 +27,9 @@ public class TimeTableController {
 
 	@Autowired
 	private TimeTableService timeTableService;
+	
+	@Autowired
+	private MemberService memberService;
 	
 	@Autowired
 	private BusService busService;
@@ -74,10 +80,16 @@ public class TimeTableController {
 		return mav;
 	}
 	
+	@RequestMapping(value="create_view.do", method=RequestMethod.GET)
+	public String createView(HttpSession session) {
+		memberService.checkAdminAuth(session);
+		return "timetable/create";
+	}
+	
 	// TODO: 관리자 전용 타임 테이블 생성 함수 추가하기
 	// TODO: 각 컨트롤러단의 ERD, UCD 생성
 	@RequestMapping(value="create.do", method=RequestMethod.POST)
-	public void create() {
-		
+	public void create(HttpSession session) {
+		// timeTableService.create(session);
 	}
 }

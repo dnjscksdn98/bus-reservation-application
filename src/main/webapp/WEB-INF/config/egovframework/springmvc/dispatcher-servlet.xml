@@ -48,6 +48,7 @@
                 <prop key="egovframework.busreservation.timetable.exception.InvalidTimeTableException">error/timetable/invalid_timetable</prop>
                 <prop key="egovframework.busreservation.section.exception.InvalidSectionException">error/section/invalid_section</prop>
                 <prop key="egovframework.busreservation.auth.InvalidAuthenticationException">error/auth/auth_error</prop>
+                <prop key="egovframework.busreservation.auth.InvalidRoleException">error/auth/role_error</prop>
             </props>
         </property>
     </bean>

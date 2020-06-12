@@ -17,6 +17,9 @@
    			</c:when>
    			<c:otherwise>
    				<a class="p-2 text-dark" href="#">${sessionScope.userId}</a>
+   				<c:if test="${sessionScope.memberCd == '003002'}">
+   					<a class="p-2 text-dark" href="${path}/timetable/create_view.do">타임테이블 생성</a>
+   				</c:if>
    				<a class="p-2 btn btn-outline-primary" href="${path}/member/logout.do">로그아웃</a>
    			</c:otherwise>
   		</c:choose>
