@@ -38,4 +38,20 @@
 	    
 	</select>
 	
+	<select id="findAdminById" resultType="String">
+	    
+	    SELECT id
+	    FROM member
+	    WHERE id = #{id} AND gbn_cd = '003002'
+	    
+	</select>
+	
+	<select id="findMemberCdById" resultType="String">
+	    
+	    SELECT gbn_cd
+	    FROM member
+	    WHERE id = #{userId}
+	    
+	</select>
+	
 </mapper>

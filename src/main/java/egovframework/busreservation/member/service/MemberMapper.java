@@ -28,4 +28,12 @@ public class MemberMapper extends EgovAbstractMapper {
 	public void insertFile(Map<String, Object> map) {
 		insert("MemberMapper.insertFile", map);
 	}
+	
+	public String findAdminById(String id) {
+		return selectOne("MemberMapper.findAdminById", id);
+	}
+	
+	public String findMemberCdById(String userId) {
+		return selectOne("MemberMapper.findMemberCdById", userId);
+	}
 }

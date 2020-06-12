@@ -14,4 +14,6 @@ public interface MemberService {
 	public void login(MemberLoginDto resource, HttpSession session);
 	
 	public void logout(HttpSession session);
+	
+	public void checkAdminAuth(HttpSession session);
 }

@@ -1,13 +1,12 @@
 package egovframework.busreservation.member.service;
 
-import javax.servlet.http.HttpSession;
-
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -16,10 +15,11 @@ import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import egovframework.busreservation.member.dto.MemberSignupDto;
 import egovframework.busreservation.member.dto.MemberLoginDto;
 
+import egovframework.busreservation.utils.FileUtils;
+import egovframework.busreservation.auth.InvalidRoleException;
 import egovframework.busreservation.member.exception.IdExistsException;
 import egovframework.busreservation.member.exception.InvalidPasswordException;
 import egovframework.busreservation.member.exception.MemberNotFoundException;
-import egovframework.busreservation.utils.FileUtils;
 
 
 @Service("memberService")
@@ -60,12 +60,23 @@ public class MemberServiceImpl extends EgovAbstractServiceImpl implements Member
 		if(findMemberByIdWithPw(resource) == -1) {
 			throw new MemberNotFoundException("아이디 또는 비번이 틀렸습니다");
 		}
-		session.setAttribute("userId", resource.getId());
+		String userId = resource.getId();
+		String memberCd = memberMapper.findMemberCdById(userId);
+		session.setAttribute("userId", userId);
+		session.setAttribute("memberCd", memberCd);
 	}
 	
 	@Override
 	public void logout(HttpSession session) {
 		session.invalidate();
+	}
+	
+	@Override
+	public void checkAdminAuth(HttpSession session) {
+		String id = memberMapper.findAdminById((String)session.getAttribute("userId"));
+		if(id == null) {
+			throw new InvalidRoleException("접근 불가능한 사용자입니다");
+		}
 	}
 	
 	private int findMemberByIdWithPw(MemberLoginDto resource) {
