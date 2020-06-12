@@ -44,14 +44,14 @@
 				    <input type="password" class="form-control" name="confirmPasswd" id="confirmPasswd" placeholder="패스워드를 다시 입력하세요" required>
 			  	</div>
 			  	  
-			  	<select class="form-control" name="gbnCd">
+			  	<select class="form-control mb-2" name="gbnCd" style="text-align-last: center;">
 			  		<option value="">-- 사용자 구분 --</option>
 			  		<option value="003001">고객</option>
 			  		<option value="003002">관리자</option>
 			  		<option value="003003">기사</option>
 			  	</select>
 			  	
-			  	<select class="form-control" name="genderCd">
+			  	<select class="form-control mb-2" name="genderCd" style="text-align-last: center;">
 			  		<option value="">-- 성별 --</option>
 			  		<option value="001001">남자</option>
 			  		<option value="001002">여자</option>
