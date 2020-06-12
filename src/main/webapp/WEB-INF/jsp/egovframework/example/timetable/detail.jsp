@@ -18,7 +18,7 @@
 	<body>
 		<%@ include file="../include/nav.jsp" %>
 	
-		<div class="container">
+		<div class="container text-center">
 			<h2>구간 선택하기</h2>
 			
 			<div>

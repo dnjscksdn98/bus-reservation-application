@@ -9,12 +9,15 @@ public class MemberSignupDto {
 	private String passwd;
 	private String confirmPasswd;
 	private String gbnCd;
+	private String genderCd;
 	
 	public MemberSignupDto() {
 		
 	}
 	
-	public MemberSignupDto(String id, String name, String email, String telNo, String passwd, String confirmPasswd, String gbnCd) {
+	public MemberSignupDto(
+			String id, String name, String email, String telNo, 
+			String passwd, String confirmPasswd, String gbnCd, String genderCd) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -22,6 +25,15 @@ public class MemberSignupDto {
 		this.passwd = passwd;
 		this.confirmPasswd = confirmPasswd;
 		this.gbnCd = gbnCd;
+		this.genderCd = genderCd;
+	}
+
+	public String getGenderCd() {
+		return genderCd;
+	}
+
+	public void setGenderCd(String genderCd) {
+		this.genderCd = genderCd;
 	}
 
 	public String getId() {

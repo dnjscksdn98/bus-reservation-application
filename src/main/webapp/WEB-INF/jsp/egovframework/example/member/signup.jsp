@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,9 +8,9 @@
 		<%@ include file="../include/header.jsp" %>
 		<link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/signin.css'/>"/>
 	</head>
-	<body class="text-center" style="height:500px;">
+	<body>
 	
-		<div class="container">
+		<div class="container text-center">
 			<form class="form-signin " name="signup_form" method="post" action="${path}/member/signup.do" enctype="multipart/form-data">
 				<h2 class="h3 mb-3 font-weight-normal">회원가입</h2>
 			  	  
@@ -44,10 +44,18 @@
 				    <input type="password" class="form-control" name="confirmPasswd" id="confirmPasswd" placeholder="패스워드를 다시 입력하세요" required>
 			  	</div>
 			  	  
-			  	<div>
-				    <label for="gbnCd" class="sr-only">사용자 구분 코드</label>
-				    <input class="form-control" name="gbnCd" id="gbnCd" placeholder="사용자 구분 코드를 입력하세요">
-			  	</div>
+			  	<select class="form-control" name="gbnCd">
+			  		<option value="">-- 사용자 구분 --</option>
+			  		<option value="003001">고객</option>
+			  		<option value="003002">관리자</option>
+			  		<option value="003003">기사</option>
+			  	</select>
+			  	
+			  	<select class="form-control" name="genderCd">
+			  		<option value="">-- 성별 --</option>
+			  		<option value="001001">남자</option>
+			  		<option value="001002">여자</option>
+			  	</select>
 				  
 				<label for="file" class="sr-only">프로필 사진 선택</label>
 				<input type="file" name="file" id="file" />

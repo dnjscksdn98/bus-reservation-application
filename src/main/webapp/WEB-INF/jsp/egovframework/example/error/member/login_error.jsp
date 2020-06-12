@@ -5,14 +5,14 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>로그인</title>
-		<%@ include file="../../include/header.jsp" %>
+		<%@ include file="./../../include/header.jsp" %>
 		<link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/signin.css'/>"/>
 	</head>
-	<body class="text-center" style="height:500px;">
+	<body>
 		
-		<div class="alert alert-warning" role="alert">로그인을 먼저 하세요!</div>
+		<div class="container text-center">
+			<div class="alert alert-warning" role="alert">아이디 또는 비밀번호가 틀렸습니다!</div>
 		
-		<div class="container">
 			<form class="form-signin " name="login_form" method="post" action="${path}/member/login.do">
 				<h2 class="h3 mb-3 font-weight-normal">로그인</h2>
 			  	  

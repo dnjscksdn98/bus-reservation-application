@@ -5,7 +5,7 @@
 	<insert id="insertMember" parameterType="MemberSignupDto">
 	    
 		INSERT INTO member
-		VALUES(#{id}, #{name}, #{telNo}, #{email}, #{passwd}, #{gbnCd})
+		VALUES(#{id}, #{name}, #{telNo}, #{email}, #{passwd}, #{gbnCd}, #{genderCd})
 	    
 	</insert>
 	

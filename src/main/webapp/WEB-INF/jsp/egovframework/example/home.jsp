@@ -102,7 +102,7 @@
 	        					<h4 class="my-0 font-weight-normal">가는 날</h4>
 	      					</div>
 	      					<div class="card-body">
-	        					<select name="month">
+	        					<select name="month" class="form-control mb-2" style="text-align-last: center;">
 	        						<option value="">-- 월 --</option>
 									<c:forEach var="month" items="${map.months}">
 										<c:if test="${Integer.toString(month).length() lt 2}">
@@ -113,7 +113,7 @@
 										</c:if>
 									</c:forEach>
 								</select>
-								<select name="day">
+								<select name="day" class="form-control mb-2" style="text-align-last: center;">
 									<option value="">-- 일 --</option>
 									<c:forEach var="day" items="${map.days}">
 										<c:if test="${Integer.toString(day).length() lt 2}">
@@ -124,7 +124,7 @@
 										</c:if>
 									</c:forEach>
 								</select>
-								<select name="time">
+								<select name="time" class="form-control mb-4" style="text-align-last: center;">
 									<option value="">-- 출발 시간 --</option>
 									<c:forEach var="time" items="${map.times}">
 										<c:if test="${Integer.toString(time).length() lt 2}">

@@ -8,12 +8,13 @@
 		<%@ include file="../include/header.jsp" %>
 		<link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/signin.css'/>"/>
 	</head>
-	<body class="text-center" style="height:500px;">
+	<body>
 		<c:if test="${msg == 'success'}">
 			<div class="alert alert-info" role="alert">회원가입에 성공했습니다!</div>
 		</c:if>
-		
-		<div class="container">
+				
+		<div class="container text-center">
+			
 			<form class="form-signin " name="login_form" method="post" action="${path}/member/login.do">
 				<h2 class="h3 mb-3 font-weight-normal">로그인</h2>
 			  	  

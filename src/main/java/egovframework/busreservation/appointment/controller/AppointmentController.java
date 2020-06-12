@@ -29,4 +29,6 @@ public class AppointmentController {
 		mav.setViewName("appointment/reserve_success");
 		return mav;
 	}
+	
+	// TODO: 예약 취소 기능 추가
 }
