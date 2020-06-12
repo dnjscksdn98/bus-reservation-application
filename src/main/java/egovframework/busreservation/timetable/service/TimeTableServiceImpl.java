@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import egovframework.busreservation.timetable.dto.TimeTableDto;
 import egovframework.busreservation.timetable.exception.InvalidTimeTableException;
@@ -43,5 +44,10 @@ public class TimeTableServiceImpl implements TimeTableService {
 	@Override
 	public String findTimeTableBySeqNo(int seqNo) {
 		return timeTableMapper.findTimeTableBySeqNo(seqNo);
+	}
+	
+	@Override
+	public void createTimeTable(TimeTableDto resource, HttpSession session) {
+		timeTableMapper.createTimeTable(resource);
 	}
 }

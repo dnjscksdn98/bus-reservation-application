@@ -57,4 +57,16 @@
 	    
 	</select>
 	
+	<insert id="createTimeTable" parameterType="TimeTableDto">
+	    
+	    INSERT INTO time_table
+	    VALUES(
+	    	(SELECT NVL(MAX(seq_no, 0)) + 1 FROM time_table),
+	    	#{startTime},
+	    	#{endTime},
+	    	#{busNo}
+	    )
+	    
+	</insert>
+	
 </mapper>

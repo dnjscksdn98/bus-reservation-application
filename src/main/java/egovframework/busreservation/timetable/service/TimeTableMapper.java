@@ -37,4 +37,8 @@ public class TimeTableMapper extends EgovAbstractMapper {
 	public String findTimeTableBySeqNo(int seqNo) {
 		return selectOne("TimeTableMapper.findTimeTableBySeqNo", seqNo);
 	}
+	
+	public void createTimeTable(TimeTableDto resource) {
+		insert("TimeTableMapper.createTimeTable", resource);
+	}
 }

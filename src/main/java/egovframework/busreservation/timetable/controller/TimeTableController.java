@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -86,10 +87,9 @@ public class TimeTableController {
 		return "timetable/create";
 	}
 	
-	// TODO: 관리자 전용 타임 테이블 생성 함수 추가하기
 	// TODO: 각 컨트롤러단의 ERD, UCD 생성
 	@RequestMapping(value="create.do", method=RequestMethod.POST)
-	public void create(HttpSession session) {
-		// timeTableService.create(session);
+	public void create(@ModelAttribute TimeTableDto resource, HttpSession session) {
+		timeTableService.createTimeTable(resource, session);
 	}
 }

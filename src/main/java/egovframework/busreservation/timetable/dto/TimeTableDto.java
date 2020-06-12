@@ -11,8 +11,13 @@ public class TimeTableDto {
 		
 	}
 	
+	public TimeTableDto(String startTime, String endTime, int busNo) {
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.busNo = busNo;
+	}
+	
 	public TimeTableDto(int seqNo, String startTime, String endTime, int busNo) {
-		super();
 		this.seqNo = seqNo;
 		this.startTime = startTime;
 		this.endTime = endTime;
