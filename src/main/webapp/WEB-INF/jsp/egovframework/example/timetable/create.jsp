@@ -10,13 +10,13 @@
 			function setEndTime() {
 				var year = "2020";
 				
-				var m = document.getElementById("month");
+				var m = document.getElementById("tableMonth");
 				var month = m.options[m.selectedIndex].value;
 				
-				var d = document.getElementById("day");
+				var d = document.getElementById("tableDay");
 				var day = d.options[d.selectedIndex].value;
 				
-				var t = document.getElementById("time");
+				var t = document.getElementById("tableTime");
 				var time = t.options[t.selectedIndex].value;
 				var hour = time.substring(0, 2);
 				
@@ -36,7 +36,7 @@
 			<form class="form-signin " method="post" action="${path}/timetable/create.do">
 				<h2 class="h3 mb-3 font-weight-normal">타임 테이블 생성하기</h2>
 			  	  
-			  	<select class="form-control mb-2" name="tableMonth" id="month" style="text-align-last: center;">
+			  	<select class="form-control mb-2" name="tableMonth" id="tableMonth" style="text-align-last: center;">
 			  		<option value="">-- 월 선택 --</option>
 			  		<c:forEach var="month" items="${map.months}">
 						<c:if test="${Integer.toString(month).length() lt 2}">
@@ -48,7 +48,7 @@
 					</c:forEach>
 			  	</select>
 				
-				<select name="tableDay" class="form-control mb-2" id="day" style="text-align-last: center;">
+				<select class="form-control mb-2" name="tableDay" id="tableDay" style="text-align-last: center;">
 					<option value="">-- 일 선택 --</option>
 					<c:forEach var="day" items="${map.days}">
 						<c:if test="${Integer.toString(day).length() lt 2}">
@@ -60,7 +60,7 @@
 					</c:forEach>
 				</select>
 				
-				<select onchange="setEndTime()" name="tableTime" id="time" class="form-control mb-2" style="text-align-last: center;">
+				<select onchange="setEndTime()" name="tableTime" id="tableTime" class="form-control mb-2" style="text-align-last: center;">
 					<option value="">-- 출발 시간 --</option>
 					<c:forEach var="time" items="${map.times}">
 						<c:if test="${Integer.toString(time).length() lt 2}">

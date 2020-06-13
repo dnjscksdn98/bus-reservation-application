@@ -48,7 +48,7 @@ public class TimeTableServiceImpl implements TimeTableService {
 	
 	@Override
 	public void createTimeTable(TimeTableDto resource, HttpSession session) {
-		String startTime = "2020" + resource.getMonth() + resource.getDay() + resource.getTime();
+		String startTime = "2020" + resource.getTableMonth() + resource.getTableDay() + resource.getTableTime();
 		timeTableMapper.createTimeTable(startTime, resource.getEndTime(), resource.getBusNo());
 	}
 }

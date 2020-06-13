@@ -37,28 +37,28 @@ public class TimeTableDto {
 		this.seqNo = seqNo;
 	}
 	
-	public String getMonth() {
+	public String getTableMonth() {
 		return tableMonth;
 	}
 
-	public void setMonth(String month) {
-		this.tableMonth = month;
+	public void setTableMonth(String tableMonth) {
+		this.tableMonth = tableMonth;
 	}
 
-	public String getDay() {
+	public String getTableDay() {
 		return tableDay;
 	}
 
-	public void setDay(String day) {
-		this.tableDay = day;
+	public void setTableDay(String tableDay) {
+		this.tableDay = tableDay;
 	}
 
-	public String getTime() {
+	public String getTableTime() {
 		return tableTime;
 	}
 
-	public void setTime(String time) {
-		this.tableTime = time;
+	public void setTableTime(String tableTime) {
+		this.tableTime = tableTime;
 	}
 
 	public String getStartTime() {
