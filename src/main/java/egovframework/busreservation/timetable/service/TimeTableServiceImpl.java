@@ -23,9 +23,10 @@ public class TimeTableServiceImpl implements TimeTableService {
 	
 	@Override
 	public TimeTableDto getTimeTableById(int id) {
-		TimeTableDto timetable = timeTableMapper.getTimeTableById(id);
-		if(timetable == null) {
-			// TODO: 에러 페이지 꾸미기
+		TimeTableDto timetable;
+		try {
+			timetable = timeTableMapper.getTimeTableById(id);
+		} catch(NullPointerException e) {
 			throw new InvalidTimeTableException("존재하지 않는 타임 테이블입니다");
 		}
 		return timetable;
@@ -38,12 +39,24 @@ public class TimeTableServiceImpl implements TimeTableService {
 	
 	@Override
 	public int findTimeTableByTime(String time) {
-		return timeTableMapper.findTimeTableByTime(time);
+		int seqNo;
+		try {
+			seqNo = timeTableMapper.findTimeTableByTime(time);
+		} catch(NullPointerException e) {
+			throw new InvalidTimeTableException("존재하지 않는 타임 테이블입니다");
+		}
+		return seqNo;
 	}
 	
 	@Override
 	public String findTimeTableBySeqNo(int seqNo) {
-		return timeTableMapper.findTimeTableBySeqNo(seqNo);
+		String startTime;
+		try {
+			startTime = timeTableMapper.findTimeTableBySeqNo(seqNo);
+		} catch(NullPointerException e) {
+			throw new InvalidTimeTableException("존재하지 않는 타임 테이블입니다");
+		}
+		return startTime;
 	}
 	
 	@Override
