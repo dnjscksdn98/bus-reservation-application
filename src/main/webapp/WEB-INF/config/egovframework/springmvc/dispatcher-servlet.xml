@@ -33,15 +33,8 @@
     </bean>
 	
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <!-- <property name="defaultErrorView" value="cmmn/egovError"/>  -->
         <property name="exceptionMappings">
             <props>
-                <!-- 
-                <prop key="org.springframework.dao.DataAccessException">cmmn/dataAccessFailure</prop>
-                <prop key="org.springframework.transaction.TransactionException">cmmn/transactionFailure</prop>
-                <prop key="egovframework.rte.fdl.cmmn.exception.EgovBizException">cmmn/egovError</prop>
-                <prop key="org.springframework.security.AccessDeniedException">cmmn/egovError</prop>
-                -->
                 <prop key="egovframework.busreservation.member.exception.IdExistsException">error/member/signup_iderror</prop>
                 <prop key="egovframework.busreservation.member.exception.InvalidPasswordException">error/member/signup_pwerror</prop>
                 <prop key="egovframework.busreservation.member.exception.MemberNotFound">error/member/login_error</prop>
@@ -57,17 +50,4 @@
 	    p:viewClass="org.springframework.web.servlet.view.JstlView"
 	    p:prefix="/WEB-INF/jsp/egovframework/example/" p:suffix=".jsp"/>
 
-    <!-- For Pagination Tag -->
-    <bean id="imageRenderer" class="egovframework.example.cmmn.web.EgovImgPaginationRenderer"/>
-
-    <bean id="paginationManager" class="egovframework.rte.ptl.mvc.tags.ui.pagination.DefaultPaginationManager">
-        <property name="rendererType">
-            <map>
-                <entry key="image" value-ref="imageRenderer"/>
-            </map>
-        </property>
-    </bean>
-	<!-- /For Pagination Tag -->
-
-    <!-- <mvc:view-controller path="/cmmn/validator.do" view-name="cmmn/validator"/>  -->
 </beans>

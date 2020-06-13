@@ -17,7 +17,6 @@
 		<config>src/main/resources/egovframework/spring/context-properties.xml</config>
 		<config>src/main/webapp/WEB-INF/config/egovframework/springmvc/dispatcher-servlet.xml</config>
 		<config>src/main/resources/egovframework/spring/context-datasource.xml</config>
-		<config>src/main/resources/egovframework/spring/context-validator.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
