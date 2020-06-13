@@ -11,6 +11,10 @@ public class BusDto {
 		
 	}
 	
+	public BusDto(int busNo) {
+		this.busNo = busNo;
+	}
+	
 	public BusDto(int busNo, String busName, int seatCnt, int mileage) {
 		this.busNo = busNo;
 		this.busName = busName;

@@ -15,7 +15,7 @@
 					time_table
 				WHERE start_time like '%'||#{time}||'%'
 				ORDER BY
-					seq_no
+					seq_no DESC
 			) A
 		) WHERE rn BETWEEN #{start} AND #{end}
 	    
@@ -57,11 +57,11 @@
 	    
 	</select>
 	
-	<insert id="createTimeTable" parameterType="TimeTableDto">
+	<insert id="createTimeTable">
 	    
 	    INSERT INTO time_table
 	    VALUES(
-	    	(SELECT NVL(MAX(seq_no, 0)) + 1 FROM time_table),
+	    	(SELECT NVL(MAX(seq_no) + 1, 1) FROM time_table),
 	    	#{startTime},
 	    	#{endTime},
 	    	#{busNo}

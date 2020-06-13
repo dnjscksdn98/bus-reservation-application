@@ -82,14 +82,28 @@ public class TimeTableController {
 	}
 	
 	@RequestMapping(value="create_view.do", method=RequestMethod.GET)
-	public String createView(HttpSession session) {
+	public ModelAndView createView(HttpSession session) {
 		memberService.checkAdminAuth(session);
-		return "timetable/create";
+		
+		Map<String, Object> map = new HashMap<>();
+		DateUtils dateUtils = new DateUtils();
+		map.put("months", dateUtils.getMonths());
+		map.put("days", dateUtils.getDays());
+		map.put("times", dateUtils.getTimes());
+		map.put("buses", busService.getBuses());
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("map", map);
+		mav.setViewName("timetable/create");
+		return mav;
 	}
 	
 	// TODO: 각 컨트롤러단의 ERD, UCD 생성
 	@RequestMapping(value="create.do", method=RequestMethod.POST)
-	public void create(@ModelAttribute TimeTableDto resource, HttpSession session) {
+	public ModelAndView create(@ModelAttribute TimeTableDto resource, HttpSession session) {
 		timeTableService.createTimeTable(resource, session);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("main");
+		return mav;
 	}
 }

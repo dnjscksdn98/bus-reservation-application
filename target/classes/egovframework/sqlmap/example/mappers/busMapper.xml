@@ -14,4 +14,11 @@
 	    
 	</select>
 	
+	<select id="getBuses" resultType="BusDto">
+	    
+	    SELECT bus_no AS busNo
+	    FROM bus
+	    
+	</select>
+	
 </mapper>

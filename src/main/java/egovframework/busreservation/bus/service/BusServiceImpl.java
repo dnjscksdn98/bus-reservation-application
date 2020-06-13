@@ -1,5 +1,7 @@
 package egovframework.busreservation.bus.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
@@ -17,7 +19,7 @@ public class BusServiceImpl implements BusService {
 	}
 	
 	@Override
-	public void reserveBusById(int id) {
-		
+	public List<BusDto> getBuses() {
+		return busMapper.getBuses();
 	}
 }

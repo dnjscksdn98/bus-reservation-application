@@ -38,7 +38,11 @@ public class TimeTableMapper extends EgovAbstractMapper {
 		return selectOne("TimeTableMapper.findTimeTableBySeqNo", seqNo);
 	}
 	
-	public void createTimeTable(TimeTableDto resource) {
-		insert("TimeTableMapper.createTimeTable", resource);
+	public void createTimeTable(String startTime, String endTime, int busNo) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("startTime", startTime);
+		map.put("endTime", endTime);
+		map.put("busNo", busNo);
+		insert("TimeTableMapper.createTimeTable", map);
 	}
 }
