@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+	String msg = request.getParameter("msg");
+%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -47,9 +50,9 @@
 			}
 		</script>
 	</head>
-	
 		<body>
     		<%@include file="./include/nav.jsp" %>
+    		
     		<c:if test="${msg == 'reserveSuccess'}">
     			<div class="alert alert-warning alert-dismissible fade show" role="alert">
 					결제가 완료되었습니다!
@@ -61,6 +64,22 @@
     		<c:if test="${msg == 'deleteSuccess'}">
     			<div class="alert alert-warning alert-dismissible fade show" role="alert">
 					예약이 취소됬습니다!
+				    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    	<span aria-hidden="true">&times;</span>
+				    </button>
+				</div>
+    		</c:if>
+    		<c:if test="${param.msg == 'sectionError'}">
+    			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					잘못된 구간입니다. 다시 선택해주세요!
+				    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    	<span aria-hidden="true">&times;</span>
+				    </button>
+				</div>
+    		</c:if>
+    		<c:if test="${param.msg == 'tableError'}">
+    			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					지정된 시간의 버스는 없습니다!
 				    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				    	<span aria-hidden="true">&times;</span>
 				    </button>

@@ -27,6 +27,7 @@
 		       			</ul>
      				</div>
    				</div>
+   				<h2>>></h2>
    				<div class="card mb-4 shadow-sm">
      				<div class="card-header">
        					<h4 class="my-0 font-weight-normal">도착지</h4>
@@ -39,6 +40,7 @@
 		       			</ul>
      				</div>
    				</div>
+   				<h2>>></h2>
    				<div class="card mb-4 shadow-sm">
      				<div class="card-header">
        					<h4 class="my-0 font-weight-normal">시간</h4>
