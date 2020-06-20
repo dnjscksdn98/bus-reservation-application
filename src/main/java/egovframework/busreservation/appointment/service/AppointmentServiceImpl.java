@@ -31,10 +31,8 @@ public class AppointmentServiceImpl implements AppointmentService {
 	
 	@Override
 	public AppointmentDto getAppointmentByUserId(String id) {
-		AppointmentDto appointment;
-		try {
-			appointment = appointmentMapper.getAppointmentByUserId(id);
-		} catch(NullPointerException e) {
+		AppointmentDto appointment = appointmentMapper.getAppointmentByUserId(id);
+		if(appointment == null) {
 			throw new AppointmentDoesNotExistException("이 사용자는 예약이 없습니다");
 		}
 		return appointment;
