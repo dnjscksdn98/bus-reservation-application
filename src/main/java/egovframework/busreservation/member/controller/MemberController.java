@@ -1,5 +1,8 @@
 package egovframework.busreservation.member.controller;
 
+import java.util.Map;
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import egovframework.busreservation.section.service.SectionService;
+import egovframework.busreservation.section.dto.SectionResponseDto;
 import egovframework.busreservation.appointment.dto.AppointmentDto;
 import egovframework.busreservation.appointment.service.AppointmentService;
 import egovframework.busreservation.member.service.MemberService;
@@ -26,6 +31,9 @@ public class MemberController {
 	
 	@Autowired
 	private AppointmentService appointmentService;
+	
+	@Autowired
+	private SectionService sectionService;
 	
 	@RequestMapping(value="/signup_view.do", method=RequestMethod.GET)
 	public String signupView() {
@@ -66,8 +74,17 @@ public class MemberController {
 	public ModelAndView profileView(HttpSession session) {
 		String id = memberService.checkAuth(session);
 		AppointmentDto appointment = appointmentService.getAppointmentByUserId(id);
+		SectionResponseDto section = sectionService.findSectionById(appointment.getSectionNo());
+		String startName = sectionService.findSectionNameByCd(section.getStartCd());
+		String endName = sectionService.findSectionNameByCd(section.getEndCd());
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("startName", startName);
+		map.put("endName", endName);
+		map.put("appointment", appointment);
+		
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("appointment", appointment);
+		mav.addObject("map", map);
 		mav.setViewName("member/profile");
 		return mav;
 	}

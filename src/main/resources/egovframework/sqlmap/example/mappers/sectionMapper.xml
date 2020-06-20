@@ -22,4 +22,16 @@
 	    
 	</select>
 	
+	<select id="findSectionById" resultType="SectionResponseDto">
+	    
+	    SELECT 
+	    	section_no AS sectionNo, 
+	    	start_cd AS startCd, 
+	    	end_cd AS endCd, 
+	    	time
+	    FROM section
+	    WHERE section_no = #{sectionNo}
+	    
+	</select>
+	
 </mapper>

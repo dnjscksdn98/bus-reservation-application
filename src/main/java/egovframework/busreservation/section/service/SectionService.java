@@ -10,4 +10,6 @@ public interface SectionService {
 	public SectionResponseDto findSectionByCd(SectionRequestDto resource, HttpSession session);
 	
 	public String findSectionNameByCd(String cd);
+	
+	public SectionResponseDto findSectionById(int sectionNo);
 }

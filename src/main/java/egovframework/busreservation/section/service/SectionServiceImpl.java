@@ -33,4 +33,9 @@ public class SectionServiceImpl implements SectionService {
 	public String findSectionNameByCd(String cd) {
 		return sectionMapper.findSectionNameByCd(cd);
 	}
+	
+	@Override
+	public SectionResponseDto findSectionById(int sectionNo) {
+		return sectionMapper.findSectionById(sectionNo);
+	}
 }

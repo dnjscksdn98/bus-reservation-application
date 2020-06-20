@@ -27,7 +27,11 @@
 	
 	<select id="getAppointmentByUserId" resultType="AppointmentDto">
 	    
-	    SELECT *
+	    SELECT 
+	    	seq_no AS seqNo,
+	    	section_no AS sectionNo,
+	    	id,
+	    	start_time AS startTime
 	    FROM appointment
 	    WHERE id = #{id}
 	    

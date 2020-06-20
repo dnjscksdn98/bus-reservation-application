@@ -18,4 +18,8 @@ public class SectionMapper extends EgovAbstractMapper {
 	public String findSectionNameByCd(String cd) {
 		return selectOne("SectionMapper.findSectionNameByCd", cd);
 	}
+	
+	public SectionResponseDto findSectionById(int sectionNo) {
+		return selectOne("SectionMapper.findSectionById", sectionNo);
+	}
 }
