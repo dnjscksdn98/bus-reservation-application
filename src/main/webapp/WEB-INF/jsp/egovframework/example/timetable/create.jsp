@@ -32,52 +32,78 @@
 		<%@ include file="../include/nav.jsp" %>
 		
 		<div class="container text-center">
+			<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+				<h1>타임 테이블 생성</h1>
+			</div>
 			
 			<form class="form-signin " method="post" action="${path}/timetable/create.do">
-				<h2 class="h3 mb-3 font-weight-normal">타임 테이블 생성하기</h2>
-			  	  
-			  	<select class="form-control mb-2" name="tableMonth" id="tableMonth" style="text-align-last: center;">
-			  		<option value="">-- 월 선택 --</option>
-			  		<c:forEach var="month" items="${map.months}">
-						<c:if test="${Integer.toString(month).length() lt 2}">
-							<option value="0${month}">${month}월</option>
-						</c:if>
-						<c:if test="${Integer.toString(month).length() gt 1}">
-							<option value="${month}">${month}월</option>
-						</c:if>
-					</c:forEach>
-			  	</select>
-				
-				<select class="form-control mb-2" name="tableDay" id="tableDay" style="text-align-last: center;">
-					<option value="">-- 일 선택 --</option>
-					<c:forEach var="day" items="${map.days}">
-						<c:if test="${Integer.toString(day).length() lt 2}">
-							<option value="0${day}">${day}일</option>
-						</c:if>
-						<c:if test="${Integer.toString(day).length() gt 1}">
-							<option value="${day}">${day}일</option>
-						</c:if>
-					</c:forEach>
-				</select>
-				
-				<select class="form-control mb-2" name="tableTime" id="tableTime" onchange="setEndTime()" style="text-align-last: center;">
-					<option value="">-- 출발 시간 --</option>
-					<c:forEach var="time" items="${map.times}">
-						<c:if test="${Integer.toString(time).length() lt 2}">
-							<option value="0${time}00">${time}시</option>
-						</c:if>
-						<c:if test="${Integer.toString(time).length() gt 1}">
-							<option value="${time}00">${time}시</option>
-						</c:if>
-					</c:forEach>
-				</select>
-				
-				<select name="busNo" id="busNo" class="form-control mb-4" style="text-align-last: center;">
-					<option value="">-- 버스 번호 --</option>
-					<c:forEach var="bus" items="${map.buses}">
-						<option value="${bus.getBusNo()}">${bus.getBusNo()}</option>
-					</c:forEach>
-				</select>
+				<div class="card-deck mb-3 text-center">
+	   				<div class="card mb-4 shadow-sm">
+	     				<div class="card-header">
+	       					<h4 class="my-0 font-weight-normal">가는 날</h4>
+	     				</div>
+	     				<div class="card-body">
+	     					<ul class="list-unstyled mt-3 mb-4">
+	     						<li class="mb-2">
+			       					<select class="form-control mb-2" name="tableMonth" id="tableMonth" style="text-align-last: center;">
+								  		<option value="">-- 월 선택 --</option>
+								  		<c:forEach var="month" items="${map.months}">
+											<c:if test="${Integer.toString(month).length() lt 2}">
+												<option value="0${month}">${month}월</option>
+											</c:if>
+											<c:if test="${Integer.toString(month).length() gt 1}">
+												<option value="${month}">${month}월</option>
+											</c:if>
+										</c:forEach>
+								  	</select>
+			       				</li>
+			       				<li class="mb-2">
+			       					<select class="form-control mb-2" name="tableDay" id="tableDay" style="text-align-last: center;">
+										<option value="">-- 일 선택 --</option>
+										<c:forEach var="day" items="${map.days}">
+											<c:if test="${Integer.toString(day).length() lt 2}">
+												<option value="0${day}">${day}일</option>
+											</c:if>
+											<c:if test="${Integer.toString(day).length() gt 1}">
+												<option value="${day}">${day}일</option>
+											</c:if>
+										</c:forEach>
+									</select>
+			       				</li>
+			       				<li class="mb-2">
+			       					<select class="form-control mb-2" name="tableTime" id="tableTime" onchange="setEndTime()" style="text-align-last: center;">
+										<option value="">-- 출발 시간 --</option>
+										<c:forEach var="time" items="${map.times}">
+											<c:if test="${Integer.toString(time).length() lt 2}">
+												<option value="0${time}00">${time}시</option>
+											</c:if>
+											<c:if test="${Integer.toString(time).length() gt 1}">
+												<option value="${time}00">${time}시</option>
+											</c:if>
+										</c:forEach>
+									</select>
+			       				</li>
+			       			</ul>
+	     				</div>
+	   				</div>
+	   				<div class="card mb-4 shadow-sm">
+	     				<div class="card-header">
+	       					<h4 class="my-0 font-weight-normal">버스 지정</h4>
+	     				</div>
+	     				<div class="card-body">
+	     					<ul class="list-unstyled mt-3 mb-4">
+	     						<li class="mb-2">
+			       					<select name="busNo" id="busNo" class="form-control mb-4" style="text-align-last: center;">
+										<option value="">-- 버스 번호 --</option>
+										<c:forEach var="bus" items="${map.buses}">
+											<option value="${bus.getBusNo()}">${bus.getBusNo()}</option>
+										</c:forEach>
+									</select>
+			       				</li>
+			       			</ul>
+	     				</div>
+	   				</div>
+	   			</div>
 				
 				<input type="hidden" class="form-control mb-4" name="endTime" id="endTime" value="" />
 				
