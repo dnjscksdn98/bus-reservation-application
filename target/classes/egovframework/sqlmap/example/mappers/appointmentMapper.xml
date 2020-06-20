@@ -25,4 +25,12 @@
 	    
 	</update>
 	
+	<select id="getAppointmentByUserId" resultType="AppointmentDto">
+	    
+	    SELECT *
+	    FROM appointment
+	    WHERE id = #{id}
+	    
+	</select>
+	
 </mapper>

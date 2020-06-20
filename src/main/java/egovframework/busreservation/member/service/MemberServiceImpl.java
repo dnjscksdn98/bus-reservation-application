@@ -70,10 +70,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public void checkAuth(HttpSession session) {
-		if(session.getAttribute("userId") == null) {
+	public String checkAuth(HttpSession session) {
+		String id = (String)session.getAttribute("userId");
+		if(id == null) {
 			throw new InvalidAuthenticationException("인증 되지 않은 사용자입니다");
 		}
+		return id;
 	}
 	
 	@Override

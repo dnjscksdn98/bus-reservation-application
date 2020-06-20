@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import egovframework.busreservation.appointment.dto.AppointmentDto;
+import egovframework.busreservation.appointment.service.AppointmentService;
 import egovframework.busreservation.member.service.MemberService;
 import egovframework.busreservation.member.dto.MemberSignupDto;
 import egovframework.busreservation.member.dto.MemberLoginDto;
@@ -21,6 +23,9 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private AppointmentService appointmentService;
 	
 	@RequestMapping(value="/signup_view.do", method=RequestMethod.GET)
 	public String signupView() {
@@ -58,9 +63,13 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/profile_view.do", method=RequestMethod.GET)
-	public String profileView(HttpSession session) {
-		memberService.checkAuth(session);
-		return "member/profile";
+	public ModelAndView profileView(HttpSession session) {
+		String id = memberService.checkAuth(session);
+		AppointmentDto appointment = appointmentService.getAppointmentByUserId(id);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("appointment", appointment);
+		mav.setViewName("member/profile");
+		return mav;
 	}
 	
 }

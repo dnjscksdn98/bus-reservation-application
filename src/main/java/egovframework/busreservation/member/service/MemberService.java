@@ -15,7 +15,7 @@ public interface MemberService {
 	
 	public void logout(HttpSession session);
 	
-	public void checkAuth(HttpSession session);
+	public String checkAuth(HttpSession session);
 	
 	public void checkAdminAuth(HttpSession session);
 }

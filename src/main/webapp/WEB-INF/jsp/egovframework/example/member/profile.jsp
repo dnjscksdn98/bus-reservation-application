@@ -7,6 +7,6 @@
 		<title>프로필</title>
 	</head>
 	<body>
-		프로필
+		<div>아이디: ${appointment.getId()}</div>
 	</body>
 </html>

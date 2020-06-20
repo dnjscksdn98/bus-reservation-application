@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
 import egovframework.busreservation.appointment.dto.AppointmentDto;
+import egovframework.busreservation.appointment.exception.AppointmentDoesNotExistException;
 import egovframework.busreservation.auth.InvalidAuthenticationException;
 
 
@@ -26,5 +27,16 @@ public class AppointmentServiceImpl implements AppointmentService {
 		appointmentMapper.reserve(resource);
 		int busNo = appointmentMapper.getBusBySeq(resource.getSeqNo());
 		appointmentMapper.reduceSeat(busNo);
+	}
+	
+	@Override
+	public AppointmentDto getAppointmentByUserId(String id) {
+		AppointmentDto appointment;
+		try {
+			appointment = appointmentMapper.getAppointmentByUserId(id);
+		} catch(NullPointerException e) {
+			throw new AppointmentDoesNotExistException("이 사용자는 예약이 없습니다");
+		}
+		return appointment;
 	}
 }
