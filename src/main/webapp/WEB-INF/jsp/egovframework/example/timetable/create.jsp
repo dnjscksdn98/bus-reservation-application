@@ -60,7 +60,7 @@
 					</c:forEach>
 				</select>
 				
-				<select onchange="setEndTime()" name="tableTime" id="tableTime" class="form-control mb-2" style="text-align-last: center;">
+				<select class="form-control mb-2" name="tableTime" id="tableTime" onchange="setEndTime()" style="text-align-last: center;">
 					<option value="">-- 출발 시간 --</option>
 					<c:forEach var="time" items="${map.times}">
 						<c:if test="${Integer.toString(time).length() lt 2}">
@@ -79,7 +79,7 @@
 					</c:forEach>
 				</select>
 				
-				<input class="form-control mb-4" name="endTime" id="endTime" value="" />
+				<input type="hidden" class="form-control mb-4" name="endTime" id="endTime" value="" />
 				
 				<button type="submit" class="btn btn-primary btn-block">생성</button>
 			</form>

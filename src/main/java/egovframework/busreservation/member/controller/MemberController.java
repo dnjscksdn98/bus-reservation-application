@@ -57,4 +57,10 @@ public class MemberController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/profile_view.do", method=RequestMethod.GET)
+	public String profileView(HttpSession session) {
+		memberService.checkAuth(session);
+		return "member/profile";
+	}
+	
 }

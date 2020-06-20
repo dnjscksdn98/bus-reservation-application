@@ -14,28 +14,36 @@
 			
 			function handleStartChange1() {
 				document.getElementById("startCd").value = "002001";
+				document.getElementById("start").innerHTML = "한림대학교";
 			}
 			function handleStartChange2() {
 				document.getElementById("startCd").value = "002002";
+				document.getElementById("start").innerHTML = "춘천역";
 			}
 			function handleStartChange3() {
 				document.getElementById("startCd").value = "002003";
+				document.getElementById("start").innerHTML = "시외 버스 터미널";
 			}
 			function handleStartChange4() {
 				document.getElementById("startCd").value = "002004";
+				document.getElementById("start").innerHTML = "남춘천역";
 			}
 			
 			function handleEndChange1() {
 				document.getElementById("endCd").value = "002001";
+				document.getElementById("end").innerHTML = "한림대학교";
 			}
 			function handleEndChange2() {
 				document.getElementById("endCd").value = "002002";
+				document.getElementById("end").innerHTML = "춘천역";
 			}
 			function handleEndChange3() {
 				document.getElementById("endCd").value = "002003";
+				document.getElementById("end").innerHTML = "시외 버스 터미널";
 			}
 			function handleEndChange4() {
 				document.getElementById("endCd").value = "002004";
+				document.getElementById("end").innerHTML = "남춘천역";
 			}
 		</script>
 	</head>
@@ -67,6 +75,9 @@
 	      					</div>
 	      					<div class="card-body">
 	        					<ul class="list-unstyled mt-3 mb-4">
+	        						<li class="mb-2">
+	        							<strong id="start"></strong>
+	        						</li>
 	          						<li class="mb-2">
 	          							<button onclick="handleStartChange1()" type="button" class="btn btn-block btn-outline-secondary">한림대학교</button>
 	          						</li>
@@ -89,6 +100,9 @@
 	      					</div>
 	      					<div class="card-body">
 	        					<ul class="list-unstyled mt-3 mb-4">
+	        						<li class="mb-2">
+	        							<strong id="end"></strong>
+	        						</li>
 	          						<li class="mb-2">
 	          							<button onclick="handleEndChange1()" type="button" class="btn btn-block btn-outline-secondary">한림대학교</button>
 	          						</li>

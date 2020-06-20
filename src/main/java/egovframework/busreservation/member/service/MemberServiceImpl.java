@@ -15,6 +15,7 @@ import egovframework.busreservation.member.dto.MemberLoginDto;
 
 import egovframework.busreservation.utils.FileUtils;
 import egovframework.busreservation.auth.InvalidRoleException;
+import egovframework.busreservation.auth.InvalidAuthenticationException;
 import egovframework.busreservation.member.exception.IdExistsException;
 import egovframework.busreservation.member.exception.InvalidPasswordException;
 import egovframework.busreservation.member.exception.MemberNotFoundException;
@@ -66,6 +67,13 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void logout(HttpSession session) {
 		session.invalidate();
+	}
+	
+	@Override
+	public void checkAuth(HttpSession session) {
+		if(session.getAttribute("userId") == null) {
+			throw new InvalidAuthenticationException("인증 되지 않은 사용자입니다");
+		}
 	}
 	
 	@Override
