@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import egovframework.busreservation.appointment.dto.AppointmentDto;
@@ -25,11 +26,18 @@ public class AppointmentController {
 		appointmentService.reserve(resource, session);
 		
 		ModelAndView mav = new ModelAndView();
-		// TODO: 예약 성공 페이지 꾸미기
 		mav.addObject("msg", "reserveSuccess");
 		mav.setViewName("appointment/reserve_success");
 		return mav;
 	}
 	
-	// TODO: 예약 취소 기능 추가
+	@RequestMapping(value="/delete.do", method=RequestMethod.POST)
+	public ModelAndView delete(@RequestParam String id) {
+		appointmentService.deleteAppointmentById(id);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("msg", "deleteSuccess");
+		mav.setViewName("main");
+		return mav;
+	}
 }

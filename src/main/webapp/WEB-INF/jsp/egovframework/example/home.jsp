@@ -58,6 +58,14 @@
 				    </button>
 				</div>
     		</c:if>
+    		<c:if test="${msg == 'deleteSuccess'}">
+    			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					예약이 취소됬습니다!
+				    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    	<span aria-hidden="true">&times;</span>
+				    </button>
+				</div>
+    		</c:if>
 
 			<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 				<h1 class="display-4">고속 버스 예매</h1>

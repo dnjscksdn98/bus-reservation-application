@@ -25,4 +25,8 @@ public class AppointmentMapper extends EgovAbstractMapper {
 	public AppointmentDto getAppointmentByUserId(String id) {
 		return selectOne("AppointmentMapper.getAppointmentByUserId", id);
 	}
+	
+	public void deleteAppointmentById(String id) {
+		delete("AppointmentMapper.deleteAppointmentById", id);
+	}
 }

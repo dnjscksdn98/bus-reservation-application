@@ -17,11 +17,8 @@
 				<h1>예약 현황</h1>
 			</div>
 			
-			<form method="post" action="#">
-				<input type="hidden" name="seqNo" value="${map.appointment.getSeqNo()}" />
-				<input type="hidden" name="sectionNo" value="${map.appointment.getSectionNo()}" />
+			<form method="post" action="${path}/appointment/delete.do">
 				<input type="hidden" name="id" value="${map.appointment.getId()}" />
-  				<input type="hidden" name="startTime" value="${map.appointment.getStartTime()}" />
   				
   				<div class="card-deck mb-3 text-center">
     				<div class="card mb-4 shadow-sm">

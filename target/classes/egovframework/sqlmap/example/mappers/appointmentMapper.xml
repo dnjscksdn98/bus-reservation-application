@@ -37,4 +37,11 @@
 	    
 	</select>
 	
+	<delete id="deleteAppointmentById" parameterType="String">
+	    
+	    DELETE FROM appointment
+	    WHERE id = #{id}
+	    
+	</delete>
+	
 </mapper>

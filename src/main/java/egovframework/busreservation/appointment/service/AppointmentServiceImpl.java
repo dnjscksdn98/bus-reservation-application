@@ -37,4 +37,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 		}
 		return appointment;
 	}
+	
+	@Override
+	public void deleteAppointmentById(String id) {
+		appointmentMapper.deleteAppointmentById(id);
+	}
 }
