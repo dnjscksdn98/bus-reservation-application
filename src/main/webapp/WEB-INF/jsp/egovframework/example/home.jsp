@@ -42,6 +42,14 @@
 	
 		<body>
     		<%@include file="./include/nav.jsp" %>
+    		<c:if test="${msg == 'reserveSuccess'}">
+    			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					결제가 완료되었습니다!
+				    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    	<span aria-hidden="true">&times;</span>
+				    </button>
+				</div>
+    		</c:if>
 
 			<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 				<h1 class="display-4">고속 버스 예매</h1>
@@ -140,9 +148,12 @@
 	    				</div>		
 					</div>
 				</form>
-				
 
   				<footer class="pt-4 border-top">
+  					<div class="pricing-header px-3 py-3 pb-md-4 mx-auto text-center">
+						<p class="lead">좌석 검색</p>
+					</div>
+  				
     				<div class="row text-center d-flex justify-content-center">
       					<form class="form-inline" name="search_form" method="post" action="${path}/timetable/list.do">
 							<select name="month" class="form-control mr-2 mb-2" style="text-align-last: center;">

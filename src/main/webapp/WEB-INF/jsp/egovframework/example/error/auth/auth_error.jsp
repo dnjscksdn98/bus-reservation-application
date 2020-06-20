@@ -11,7 +11,12 @@
 	<body>
 		
 		<div class="container text-center">
-			<div class="alert alert-warning" role="alert">로그인을 먼저 하세요!</div>
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				로그인을 먼저 하세요!
+			    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    	<span aria-hidden="true">&times;</span>
+			    </button>
+			</div>
 		
 			<form class="form-signin " name="login_form" method="post" action="${path}/member/login.do">
 				<h2 class="h3 mb-3 font-weight-normal">로그인</h2>

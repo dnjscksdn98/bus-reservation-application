@@ -11,7 +11,12 @@
 	<body>
 	
 		<div class="container text-center">
-			<div class="alert alert-warning" role="alert">비밀번호가 일치하지 않습니다</div>
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				비밀번호가 일치 하지 않습니다!
+			    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    	<span aria-hidden="true">&times;</span>
+			    </button>
+			</div>
 		
 			<form class="form-signin " name="signup_form" method="post" action="${path}/member/signup.do" enctype="multipart/form-data">
 				<h2 class="h3 mb-3 font-weight-normal">회원가입</h2>

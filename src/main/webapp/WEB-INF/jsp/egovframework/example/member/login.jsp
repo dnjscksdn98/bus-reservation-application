@@ -12,7 +12,12 @@
 				
 		<div class="container text-center">
 			<c:if test="${msg == 'success'}">
-				<div class="alert alert-info" role="alert">회원가입에 성공했습니다!</div>
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					회원가입에 성공했습니다!
+				    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    	<span aria-hidden="true">&times;</span>
+				    </button>
+				</div>
 			</c:if>
 			
 			<form class="form-signin " name="login_form" method="post" action="${path}/member/login.do">
