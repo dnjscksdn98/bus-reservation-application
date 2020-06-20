@@ -26,6 +26,7 @@ public class AppointmentController {
 		
 		ModelAndView mav = new ModelAndView();
 		// TODO: 예약 성공 페이지 꾸미기
+		mav.addObject("msg", "reserveSuccess");
 		mav.setViewName("appointment/reserve_success");
 		return mav;
 	}

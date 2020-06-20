@@ -2,7 +2,7 @@ package egovframework.busreservation.timetable.pagination;
 
 public class TimeTablePagination {
 
-	public static final int PAGE_SCALE = 1;  // 페이지당 게시물 수
+	public static final int PAGE_SCALE = 5;  // 페이지당 게시물 수
 	public static final int BLOCK_SCALE = 5;  // 블록당 페이지 수
 	
 	private int curPage;  // 현재 페이지

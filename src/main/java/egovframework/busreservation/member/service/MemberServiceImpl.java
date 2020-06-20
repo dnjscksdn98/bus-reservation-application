@@ -7,11 +7,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
-
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import egovframework.busreservation.member.dto.MemberSignupDto;
 import egovframework.busreservation.member.dto.MemberLoginDto;
 
@@ -23,7 +21,7 @@ import egovframework.busreservation.member.exception.MemberNotFoundException;
 
 
 @Service("memberService")
-public class MemberServiceImpl extends EgovAbstractServiceImpl implements MemberService {
+public class MemberServiceImpl implements MemberService {
 
 	@Resource(name="memberMapper")
 	private MemberMapper memberMapper;
@@ -42,7 +40,6 @@ public class MemberServiceImpl extends EgovAbstractServiceImpl implements Member
 		}
 		memberMapper.insertMember(resource);
 		
-		// 파일 업로드
 		List<Map<String, Object>> list;
 		try {
 			list = fileUtils.parseInsertFileInfo(resource.getId(), mpRequest);
