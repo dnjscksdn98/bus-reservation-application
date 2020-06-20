@@ -19,29 +19,62 @@
 		<%@ include file="../include/nav.jsp" %>
 	
 		<div class="container text-center">
-			<h2>구간 선택하기</h2>
-			
-			<div>
-				출발 시간: 				
-				${map.detail.getStartTime().substring(0, 4)}년
-				${map.detail.getStartTime().substring(4, 6)}월
-				${map.detail.getStartTime().substring(6, 8)}일
-				${map.detail.getStartTime().substring(8, 10)}시
-				${map.detail.getStartTime().substring(10, 12)}분
+			<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+				<h1>경로 정보</h1>
 			</div>
-			<div>
-				도착 시간: 				
-				${map.detail.getEndTime().substring(0, 4)}년
-				${map.detail.getEndTime().substring(4, 6)}월
-				${map.detail.getEndTime().substring(6, 8)}일
-				${map.detail.getEndTime().substring(8, 10)}시
-				${map.detail.getEndTime().substring(10, 12)}분
-			</div>
-			<div>버스 번호: ${map.bus.getBusNo()}</div>
-			<div>버스 이름: ${map.bus.getBusName()}</div>
-			<div>남은 좌석: ${map.bus.getSeatCnt()} 개</div>
 			
-			<button id="showReserveBtn" class="btn btn-outline-secondary mb-4 mt-2">구간 선택하기</button>
+			<div class="card-deck mb-3 text-center">
+   				<div class="card mb-4 shadow-sm">
+     				<div class="card-header">
+       					<h4 class="my-0 font-weight-normal">출발 시간</h4>
+     				</div>
+     				<div class="card-body">
+     					<ul class="list-unstyled mt-3 mb-4">
+     						<li class="mb-2">
+		       					<strong>
+		       						${map.detail.getStartTime().substring(0, 4)}년
+									${map.detail.getStartTime().substring(4, 6)}월
+									${map.detail.getStartTime().substring(6, 8)}일
+									${map.detail.getStartTime().substring(8, 10)}시
+									${map.detail.getStartTime().substring(10, 12)}분
+		       					</strong>
+		       				</li>
+		       			</ul>
+     				</div>
+   				</div>
+   				<div class="card mb-4 shadow-sm">
+     				<div class="card-header">
+       					<h4 class="my-0 font-weight-normal">도착 시간</h4>
+     				</div>
+     				<div class="card-body">
+     					<ul class="list-unstyled mt-3 mb-4">
+     						<li class="mb-2">
+		       					<strong>
+		       						${map.detail.getEndTime().substring(0, 4)}년
+									${map.detail.getEndTime().substring(4, 6)}월
+									${map.detail.getEndTime().substring(6, 8)}일
+									${map.detail.getEndTime().substring(8, 10)}시
+									${map.detail.getEndTime().substring(10, 12)}분
+		       					</strong>
+		       				</li>
+		       			</ul>
+     				</div>
+   				</div>
+   				<div class="card mb-4 shadow-sm">
+     				<div class="card-header">
+       					<h4 class="my-0 font-weight-normal">버스 정보</h4>
+     				</div>
+     				<div class="card-body">
+       					<ul class="list-unstyled mt-3 mb-4">
+       						<li class="mb-2"><strong>버스 번호: ${map.bus.getBusNo()}</strong></li>
+       						<li class="mb-2"><strong>버스 이름: ${map.bus.getBusName()}</strong></li>
+       						<li class="mb-2"><strong>남은 좌석: ${map.bus.getSeatCnt()}개</strong></li>
+       					</ul>
+     				</div>
+   				</div>	
+			</div>
+			
+			<button id="showReserveBtn" class="btn btn-outline-secondary mb-4 mt-2">구간 선택</button>
 			
 			<div id="reserve" class="card-deck mb-3" style="display: none">
 				<div class="card mb-4 shadow-sm">
